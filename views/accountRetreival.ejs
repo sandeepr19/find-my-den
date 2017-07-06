@@ -1,0 +1,54 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Find My Den - Account Retrieval</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="/css/animate.css">
+	  <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>let user = <%- JSON.stringify(user) %>;</script>
+</head>
+<body class = "account-retrieval-body">
+  <form action="/resetPassword" method="post" >
+	<div class="container">
+		<div class="top">
+      <h1 id="title" ><span id="logo">Find My Den</span></h1>
+		</div>
+		<div class="account-retrieval-box">
+			<div class="box-header">
+				<h2>Forgot Password</h2>
+			</div>
+      <% if (message.length > 0) { %>
+        <div class="error-message"><%= message %></div>
+      <% } else {%>
+        <br/>
+      <% } %>
+      <br/>
+			<label for="username">Username</label>
+			<br/>
+			<input class ="box-input" id="userName" type="text" size="20" name="userName" maxlength="15" required/>
+			<br/>
+			<label for="email">Email Address</label>
+			<br/>
+			<input class ="box-input" id="email" type="email" size="20" name="email" maxlength="40" required/>
+			<br/>
+      <label for="password">New Password</label>
+			<br/>
+			<input class ="box-input" id ="password" type="password" size="20" name="password" maxlength="20" required/>
+			<br/>
+			<button type="submit" class="box-button">Reset Password</button>
+			<br/>
+      <br/>
+      <a href="/signup" class="small">Create account?</a>
+      &nbsp;&nbsp;
+      <a href="/login" class="small">Have account?</a>
+		</div>
+	</div>
+  </form>
+  <script type ='text/javascript'>
+    for(key in user)
+      document.getElementById(key).value = user[key];
+  </script>
+</body>
+</html>

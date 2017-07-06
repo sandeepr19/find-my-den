@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <title>Find My Den - Signup</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="/css/animate.css">
+	  <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>let user = <%- JSON.stringify(user) %>;</script>
+</head>
+<body class = "signup-body">
+  <form action="/signup" method="post">
+    <div class="container">
+      <div class="top">
+        <h1 id="title" ><span id="logo">Find My Den</span></h1>
+  		</div>
+  		<div class="edit-account-box">
+  			<div class="box-header">
+  				<h2>Sign Up</h2>
+  			</div>
+        <% if (message.length > 0) { %>
+          <div class="error-message"><%= message %></div>
+        <% } else {%>
+          <br/>
+        <% } %>
+        <br/>
+        <table align="center" width="400"  cellspacing="0" border="0" height ="250">
+          <tr>
+            <td width="50%" align="left"><label>UserName</label></td>
+            <td width="50%" align="center"><input id="userName" type="text" size="20" name="userName" maxlength="15" required/></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left"><label>First Name</label></td>
+            <td width="50%" align="center"><input id="firstName" type="text" size="20" name="firstName" maxlength="15" required/></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left"><label>Last Name</label></td>
+            <td width="50%" align="center"><input id="lastName" type="text" size="20" name="lastName" maxlength="15" required/></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left"><label>Email address</label></td>
+            <td width="50%" align="center"><input id="email" type="email" size="20" name="email" maxlength="40" required/></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left"><label>Password</label></td>
+            <td width="50%" align="center"><input id="password" type="password" size="20" name="password" maxlength="15" required/></td>
+          </tr>
+          <tr>
+            <td colspan="2" >
+              <center><button style="height:30px;width:100px" type="submit" id="button" class ="box-button"/> Signup</button><br/></center>
+            </td>
+          </tr>
+        </table>
+        <a href="/login" class="small">Have account?</a>
+        &nbsp;&nbsp;
+        <a href="/forgotPassword" class="small">Forgot password?</a>
+  		</div>
+    </div>
+  </form>
+  <script type ='text/javascript'>    
+    for(key in user)
+      document.getElementById(key).value = user[key];
+  </script>
+</body>
+</html>

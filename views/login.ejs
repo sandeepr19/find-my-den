@@ -1,0 +1,51 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+    <meta name="google-site-verification" content="YoRSw6dbGMQKnIvLNsiRUjjbwBwiGjoc3Mp-wBfW2fg" />
+    <title>Find My Den - Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="/css/animate.css">
+	  <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>let user = <%- JSON.stringify(user) %>;</script>
+</head>
+<body class = "login-body">
+  <form action="/login" method="post" >
+	<div class="container">
+		<div class="top">
+      <h1 id="title" ><span id="logo">Find My Den</span></h1>
+		</div>
+		<div class="login-box">
+			<div class="box-header">
+				<h2>Log In</h2>
+			</div>
+      <% if (message.length > 0) { %>
+        <div class="error-message"><%= message %></div>
+      <% } else {%>
+        <br/>
+      <% } %>
+      <br/>
+			<label for="username">Username</label>
+			<br/>
+			<input id ="userName" type="text" class ="box-input" size="20" name="userName" maxlength="15" required/>
+			<br/>
+			<label for="password">Password</label>
+			<br/>
+			<input id="password" type="password" class ="box-input" size="20" name="password" maxlength="15" required/>
+			<br/>
+			<button type="submit" class="box-button">Login</button>
+			<br/>
+      <br/>
+      <a href="/signup" class="small">Create account?</a>
+      &nbsp;&nbsp;
+      <a href="/forgotPassword" class="small">Forgot password?</a>
+		</div>
+	</div>
+  </form>
+  <script type ='text/javascript'>
+    for(key in user)
+      document.getElementById(key).value = user[key];
+  </script>
+</body>
+</html>

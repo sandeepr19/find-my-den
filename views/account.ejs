@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <title>Find My Den - Edit Account</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="/css/animate.css">
+	  <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>let user = <%- JSON.stringify(user) %>;</script>
+</head>
+<body class = "account-body">
+  <form action="/editUserAccount" method="post">
+    <div class="container">
+      <div class="top">
+        <h1 id="title" ><span id="logo">Find My Den</span></h1>
+      </div>
+      <div class="edit-account-box">
+        <div class="box-header">
+          <h2>Edit Account</h2>
+        </div>
+        <% if (message.length > 0) { %>
+          <div class="error-message"><%= message %></div>
+        <% } else {%>
+          <br/>
+        <% } %>
+        <br/>
+        <table align="center" width="400"  cellspacing="0" border="0" height ="250" >
+          <tr>
+            <td width="50%" align="left"><label for="userName">Username</label></td>
+            <td width="50%" align="center"><input class ="box-input" id ="userName"type="text" size="20" name="userName" maxlength="15" required readonly="readonly"/></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left"><label for="firstName">First Name</label></td>
+            <td width="50%" align="center"><input class ="box-input" id ="firstName" type="text" size="20" name="firstName" maxlength="15" required/></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left"><label for="lastName">Last Name</label></td>
+            <td width="50%" align="center"><input class ="box-input" id ="lastName" type="text" size="20" name="lastName" maxlength="15" required/></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left"><label for="email">Email address</label></td>
+            <td width="50%" align="center"><input class ="box-input" id ="email" type="email" size="20" name="email" maxlength="20" required readonly="readonly"/></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left"><label for="password">Current Password</label></td>
+            <td width="50%" align="center"><input class ="box-input" id="password" type="password" size="20" name="password" maxlength="15" required/></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left"><label for="newPassword">New Password</label></td>
+            <td width="50%" align="center"><input class ="box-input" id="newPassword" type="password" size="20" name="newPassword" maxlength="15" required/></td>
+          </tr>
+          <tr>
+            <td colspan="2" >
+              <center><button style="height:30px;width:100px" type="submit" class ="box-button"/> Save</button><br/></center>
+            </td>
+          </tr>
+        </table>
+        <a href="/" class="small">Home Page</a>
+        &nbsp;&nbsp;
+        <a href="/logout" class="small">Log out?</a>
+  		  </div>
+      </div>
+    </form>
+
+<script type ='text/javascript'>
+  for(key in user) {
+    if(document.getElementById(key) != null)
+      document.getElementById(key).value = user[key];
+  }  
+</script>
+</body>
+</html>

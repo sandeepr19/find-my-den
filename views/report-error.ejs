@@ -1,0 +1,41 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Find My Den - Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="/css/animate.css">
+	  <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body class = "report-error-body">
+  <form action="/reportError" method="post" >
+	<div class="container">
+		<div class="report-error-box">
+			<div class="box-header">
+				<h2>Sorry!!</h2>
+			</div>
+      <label >Hello,
+        <br>
+        Looks like you're in the middle of a storm.
+        <br>
+        Please fill out the below box with your issues and we'll look into it.
+        <br>
+        Sorry for the inconvenience.
+      </label>
+      <br>
+      <br>
+      <textarea rows="10" cols="50" name="errorDescription"></textarea>
+      <br>
+      <br>
+      <button type="submit" class="box-button">Send</button>
+			<br/>
+      <br/>
+      <a href="/" class="small">Home</a>
+      &nbsp;&nbsp;
+      <a href="/logout" class="small">Log out?</a>
+		</div>
+	</div>
+  </form>  
+</body>
+</html>
